@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import *
 from .serializers import *
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, status
+from rest_framework.response import Response
 
 
 class CategoryViewset(viewsets.ModelViewSet):
@@ -19,6 +20,12 @@ class Notas(generics.ListAPIView):
 
     def get_queryset(self):
         username = self.kwargs['username']
-        print(username)
-        queryset = Note.objects.filter(user=username)
-        return queryset
+        return Note.objects.filter(user=username)
+    
+    def post(self, request, username):
+        request.data['user'] = username
+        serializer = NoteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

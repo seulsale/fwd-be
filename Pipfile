@@ -10,6 +10,7 @@ django = "*"
 django-rest-framework = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"

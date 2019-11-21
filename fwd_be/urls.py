@@ -20,11 +20,11 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register('categorias', views.CategoryViewset, base_name='Category')
-router.register('notas', views.NoteViewset, base_name='Note')
+router.register('categories', views.CategoryViewset, base_name='Category')
+router.register('todos', views.NoteViewset, base_name='Note')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/notas/<str:username>/', views.Notas.as_view()),
+    path('api/todos/<str:username>/', views.Notas.as_view()),
     path('api/', include(router.urls))
 ]

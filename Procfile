@@ -1,1 +1,1 @@
-web: gunicorn fwd-be.wsgi --log-file -
+web: gunicorn fwd_be.wsgi --log-file -

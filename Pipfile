@@ -11,6 +11,8 @@ django-rest-framework = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
+python-decouple = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.7"

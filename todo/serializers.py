@@ -11,4 +11,4 @@ class CategorySerializer(serializers.ModelSerializer):
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ('user', 'text', 'color')
+        fields = '__all__'

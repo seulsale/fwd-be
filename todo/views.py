@@ -33,5 +33,8 @@ class Notas(generics.ListAPIView):
 
 class EliminarNota(generics.DestroyAPIView):
 
-    def destroy(self, request, *args, **kwargs):
-        print(args.id_todo)
+    def destroy(self, request, username, id_todo):
+        todo = Note.objects.get(id=id_todo)
+        todo_serializer = NoteSerializer(data=todo)
+        todo.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

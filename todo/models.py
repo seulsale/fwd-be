@@ -12,7 +12,9 @@ class Note(models.Model):
     created = models.DateTimeField(default=datetime.datetime.now)
     user = models.CharField(max_length=50)
     text = models.CharField(max_length=500)
-    color = models.CharField(max_length=10)
+    category = models.CharField(max_length=10)
+    priority = models.IntegerField(default=1)
+    completed = models.BooleanField(default=False)
     # category = models.ForeignKey(
     #     Category,
     #     models.CASCADE

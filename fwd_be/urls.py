@@ -26,5 +26,6 @@ router.register('todos', views.NoteViewset, base_name='Note')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/todos/<str:username>/', views.Notas.as_view()),
+    path('api/todos/<str:username>/<int:id_todo>/', views.EliminarNota.as_view()),
     path('api/', include(router.urls))
 ]
